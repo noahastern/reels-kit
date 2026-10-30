@@ -45,15 +45,31 @@ real values into `brand/brand.css`.
 
 - Something on screen from frame 0 that says why to stay. The news (the
   surprise, the claim, the challenge) lands within the first 5 seconds.
-- The hook has a camera move (a small push or a punch-in), not a static frame.
 
 ## Zooms
 
-- **Punch-ins** are static: one scale and offset, no drift. They cut in and
-  out exactly on the creator's jump cuts, with the eyes in the same spot
-  across the cut. Alternate them to hide jump cuts where the head barely moves.
-- **Zoom ramps**: on a turn in what they say, ease in about 10% around the
-  eyes, hold, and ease out right after the next cut. Two or three a video.
+When to zoom, how far and how often is the creator's call: what they ask for
+on the board, and their "My defaults". The kit never adds zooms on its own.
+Whatever they choose is done right:
+
+- **The eyes stay put across a cut.** When a zoom cuts in or out, or a move
+  ends on a cut, the eyes land in the same spot on both sides. Work the offset
+  out from where the eyes are on the frames either side, not by feel.
+- **On the exact frame.** A zoom that changes on a cut changes on that frame.
+  One or two frames off reads as a mistake. Find the jump cuts first
+  (`scripts/find_jump_cuts.py`).
+- **Two kinds, kept apart.** A punch-in is one scale and offset that holds
+  still, with no drift. A ramp eases in, holds, and eases out. Don't blend
+  them into one move.
+- **Scale around the eyes, inside the safe area.** Never crop the forehead or
+  chin under a graphic. When a graphic sits at the top, push in from the top
+  edge so the head clears it.
+- **No edges.** The picture fills the frame at every frame of a move. Clamp
+  the offset so no black or empty edge ever shows.
+- **Sharpness.** The apps show about 1080 wide, so 4K footage punches to 2x
+  with no visible loss, and 1080p footage softens past about 1.2x. If a zoom
+  they ask for will look soft, say so before building it.
+- Check zooms on frames pulled from the render, not snapshots.
 - Write zooms as `scale` plus `x`/`y` with `transformOrigin: "0px 0px"`. The
   renderer ignores CSS `transform-origin`.
 

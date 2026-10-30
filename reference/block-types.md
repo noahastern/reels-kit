@@ -17,5 +17,5 @@ variables, sizes to its content, and stays inside the safe area.
 | 5 | **Proof** | A screenshot, stat, before/after, a real number | Where they point, or beside the head | Lands on the claim it proves | pop, ping on the number |
 | 6 | **Emphasis screen** | A full-frame rule or closing callout | Full frame | Cuts in on a jump cut, out about 1s after the payoff | whoosh in, ping on the key word |
 
-Zooms (static punch-ins and zoom ramps) are motion defaults, not blocks
-(`reference/craft.md`).
+Zooms aren't blocks. How to do them well is in `reference/craft.md`; when to
+use them is the creator's call.

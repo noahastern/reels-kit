@@ -64,6 +64,9 @@ Before building anything, plan what goes on screen in each shot: which block,
 which words it types or lands on, the motion and the sound. Snapshot each
 planned graphic on the shot's footage.
 
+Zooms go on the board only where they asked for one or their "My defaults"
+place them. If they've never said how they like zooms, ask once, on the board.
+
 Write `project/cut/notes.json` and run
 `python3 <plugin>/scripts/make_board.py` to make
 `videos/<name>/storyboard/board.html`: one card per shot with its first and
@@ -73,8 +76,8 @@ and wait. They change what they want in chat. Build when they say go.
 
 ## 4. Build the first pass, without stopping
 
-Build everything on the approved board, plus captions, zooms, sounds and
-music, following `reference/craft.md`.
+Build everything on the approved board, plus captions, sounds and music,
+following `reference/craft.md`.
 - Each graphic is its own sub-composition in `project/compositions/`. Read
   the `hyperframes-core` skill before writing composition HTML.
 - Every id inside a composition starts with the composition's name and is
