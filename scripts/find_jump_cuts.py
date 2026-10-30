@@ -13,7 +13,7 @@ ap.add_argument('video'); ap.add_argument('--ratio', type=float, default=4.0)
 args = ap.parse_args()
 
 fps = Fraction(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=r_frame_rate',
-                               '-of', 'default=nw=1:nk=1', args.video], capture_output=True, text=True, check=True).stdout.split()[0])
+                               '-of', 'default=nw=1:nk=1', args.video], capture_output=True, text=True, encoding='utf-8', errors='replace', check=True).stdout.split()[0])
 W, H = 90, 160
 raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', args.video, '-vf', f'scale={W}:{H},format=gray', '-f', 'rawvideo', '-'],
                      capture_output=True, check=True).stdout

@@ -30,9 +30,9 @@ FPS = float(Fraction(args.fps))
 PRE = 0.020        # lead-in before the first sound of a shot
 POST = args.tail   # tail after the last clear sound
 
-words = json.load(open(args.transcript))
+words = json.load(open(args.transcript, encoding='utf-8'))
 v = Voice(args.voice)
-picks = json.load(open(args.picks))
+picks = json.load(open(args.picks, encoding='utf-8'))
 
 def islands_at(strict_full=18, strict_high=14, soft_full=8, soft_high=6, merge=0.12, lead=0.04, tail=0.08):
     """Islands of clear voice, merged across short gaps, then grown into soft edges (s, f, breathy ends)."""
@@ -169,7 +169,7 @@ for p in picks:
     shots.append(dict(src_in=fa, src_out=fb, kind_in=ka, kind_out=kb, text=text, why=p.get('why', ''),
                       first=p['from'], last=p['to']))
 
-json.dump(shots, open(args.shots, 'w'), indent=1)
+json.dump(shots, open(args.shots, 'w', encoding='utf-8'), indent=1)
 
 
 def row(t):

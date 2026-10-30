@@ -1,6 +1,6 @@
 ---
 name: signoff
-description: Finish a video once the creator approves it. Renders the full-resolution finals, saves Keeps into their blocks and sounds, writes the video's retro with proposed new defaults, and offers a DM automation when the video genuinely fits. Use when someone runs /signoff or says a revision is final, approved, or ready to export.
+description: Finish a video once the creator approves it. Renders the full-resolution finals, saves Keeps into their blocks and sounds, writes the video's retro with proposed new defaults, and offers a DM automation when the video genuinely fits. Use when someone runs /signoff, or replies to a revision with an approval like "it's done", "ship it", "looks perfect, export it" or "that's final". They should never need to type the command.
 ---
 
 # Sign-off: export and learn

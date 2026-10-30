@@ -8,6 +8,9 @@ description: Apply a creator's review notes to the current video and log every K
 This loop is what makes video 10 better than video 1. Every note teaches the
 kit something.
 
+If their reply is an approval with no changes ("it's done", "ship it"),
+follow the `signoff` skill instead.
+
 1. **Find the video and round.** The newest folder under `videos/` with a
    `revisions/vN-review.md`, unless they name another.
 2. **Save their words** to `revisions/vN-notes.md`, verbatim, before changing
@@ -29,4 +32,6 @@ kit something.
    propose the change to `brand/brand.css` and the style guide and wait for
    their yes.
 
-Tell them in two or three lines what changed and what you logged.
+Tell them in two or three lines what changed and what you logged, then end
+with the same line as every hand-over: "Send me more notes, or tell me it's
+done and I'll export the finals."

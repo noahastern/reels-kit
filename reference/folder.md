@@ -11,7 +11,7 @@ my-reels/
     style-guide.pdf             the visual brand guide (the one to open)
     style-guide.html            the same guide, editable
     brand.css                   colors, fonts, box style and safe area as variables
-    fonts/
+    fonts/                      the font files, with LICENSES.md
     references/                 the reels, frames and videos they fed in
     references.md               what's going on in each reference
     feedback.md                 every Keep and Don't, in their own words

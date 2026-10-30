@@ -7,6 +7,14 @@ reels kit, and hands back a finished video.
 **{{name}} is the editorial director.** They decide what goes on screen and
 when. Claude proposes and builds. Every round of notes teaches the next video.
 
+## What my videos should feel like
+
+{{their answers from onboarding, in their own words: the first second, the
+ending, who's watching and where, felt or invisible editing, rhythm, what text
+on screen is for, how a stranger knows it's theirs, what they'd cringe at}}
+
+Every creative call is checked against this.
+
 ## The basics
 
 - **Platform:** {{platform}}. Safe area on the 1080×1920 frame:

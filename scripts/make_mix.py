@@ -17,10 +17,10 @@ ap.add_argument('--target', type=float, default=-20.5)
 args = ap.parse_args()
 
 base = os.path.dirname(os.path.abspath(args.sounds))
-d = json.load(open(args.sounds))
+d = json.load(open(args.sounds, encoding='utf-8'))
 p = lambda f: os.path.join(base, f)
 END = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', args.picture],
-                           capture_output=True, text=True, check=True).stdout.strip())
+                           capture_output=True, text=True, encoding='utf-8', errors='replace', check=True).stdout.strip())
 mixdir = os.path.join(base, 'mix')
 os.makedirs(mixdir, exist_ok=True)
 os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
@@ -64,7 +64,7 @@ def graph(with_music):
 
 def loudness(path):
     r = subprocess.run(['ffmpeg', '-hide_banner', '-i', path, '-af', 'ebur128=peak=true', '-f', 'null', '-'],
-                       capture_output=True, text=True).stderr
+                       capture_output=True, text=True, encoding='utf-8', errors='replace').stderr
     return float(re.findall(r'I:\s+(-?[\d.]+) LUFS', r)[-1]), float(re.findall(r'Peak:\s+(-?[\d.]+) dBFS', r)[-1])
 
 
@@ -72,7 +72,7 @@ kinds = ['sfx'] + (['music'] if d.get('music') else [])
 mixes = {}
 for kind in kinds:
     gfile = os.path.join(mixdir, f'mix-{kind}.txt')
-    open(gfile, 'w').write(graph(kind == 'music'))
+    open(gfile, 'w', encoding='utf-8').write(graph(kind == 'music'))
     cmd = ['ffmpeg', '-v', 'error', '-y', '-i', p(d['voice'])]
     for f in files:
         cmd += ['-i', p(f)]

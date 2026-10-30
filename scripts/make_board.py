@@ -24,7 +24,7 @@ args = ap.parse_args()
 light = {'bg': '#f6f6f4', 'ink': '#1c1c1c', 'muted': '#6a6a6a', 'line': '#e2e2df', 'accent': '#1c1c1c', 'card': '#fff'}
 dark = {'bg': '#1c1c1c', 'ink': '#f2f2f0', 'muted': '#a0a0a0', 'line': '#3a3a3a', 'accent': '#f2f2f0', 'card': '#262626'}
 if args.brand:
-    brand = dict(re.findall(r'--([\w-]+):\s*(#[0-9a-fA-F]{3,8})\s*;', open(args.brand).read()))
+    brand = dict(re.findall(r'--([\w-]+):\s*(#[0-9a-fA-F]{3,8})\s*;', open(args.brand, encoding='utf-8').read()))
     for key, var in (('bg', 'box-bg'), ('ink', 'ink'), ('accent', 'accent')):
         if var in brand:
             light[key] = brand[var]
@@ -33,12 +33,12 @@ if args.brand:
             dark[key] = brand[var]
 css_vars = lambda c: ' '.join(f'--{k}:{v};' for k, v in c.items())
 
-shots = json.load(open(args.shots))
-notes = json.load(open(args.notes))
+shots = json.load(open(args.shots, encoding='utf-8'))
+notes = json.load(open(args.notes, encoding='utf-8'))
 if isinstance(notes, list):  # a bare list of shot notes
     notes = {'shots': notes}
 FPS = float(Fraction(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=r_frame_rate',
-                                      '-of', 'default=nw=1:nk=1', args.source], capture_output=True, text=True, check=True).stdout.split()[0]))
+                                      '-of', 'default=nw=1:nk=1', args.source], capture_output=True, text=True, encoding='utf-8', errors='replace', check=True).stdout.split()[0]))
 stills = tempfile.mkdtemp()
 for k, s in enumerate(shots):
     for tag, fr in (('in', s['src_in'] + 2), ('out', s['src_out'] - 3)):
@@ -114,5 +114,5 @@ ul {{ padding-left:18px; }} li {{ margin-bottom:6px; }}
 {'<h2>What was dropped</h2><ul>' + dropped + '</ul>' if dropped else ''}
 </main></body></html>"""
 os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
-open(args.out, 'w').write(page)
+open(args.out, 'w', encoding='utf-8').write(page)
 print('wrote', args.out)

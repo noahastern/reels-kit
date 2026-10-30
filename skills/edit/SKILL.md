@@ -13,11 +13,14 @@ The plugin's docs are in `reference/` and its scripts in `scripts/`, two levels
 up from this skill's base directory. Read these before the first video in a
 session: `reference/craft.md`, `reference/cutting.md`, `reference/sound.md`,
 `reference/block-types.md`, `reference/folder.md`.
+On Windows, run the scripts with `python` (or `py`) wherever the docs say
+`python3`.
 
 Every time, read the creator's `CLAUDE.md`, `brand/brand.css`,
 `brand/feedback.md`, `brand/references.md` and the last `retro.md` under
 `videos/`. Their Don'ts never come back. Their "My defaults" win over the
-plugin's.
+plugin's. Check every creative call against "What my videos should feel like"
+in their `CLAUDE.md`.
 
 If there's no `brand/` folder, stop and suggest `/onboard` first.
 
@@ -72,7 +75,9 @@ Write `project/cut/notes.json` and run
 `videos/<name>/storyboard/board.html`: one card per shot with its first and
 last frame, the words, the take and kind of join, light changes, and the
 planned graphic. Under the shots, list everything dropped, with times. Send it
-and wait. They change what they want in chat. Build when they say go.
+and wait, ending with one line so they know what to say: "Change anything you
+want, or say go and I'll build it." Any clear yes ("go", "looks good", "build
+it") is a go.
 
 ## 4. Build the first pass, without stopping
 
@@ -109,4 +114,11 @@ is, so they can answer by number ("keep 2, lose 3, 1 is too slow"). Then open
 HyperFrames Studio (`npm run dev` in `project/`) so they can watch it play on
 their footage and scrub it themselves.
 
-Their notes go through `/notes`. The final goes through `/signoff`.
+End with one line so they never need a command: "Send me notes (by number
+is easiest), or tell me it's done and I'll export the finals." Then act on
+whatever they reply:
+- **Notes:** follow the `notes` skill.
+- **A clear approval** ("it's done", "ship it", "perfect, export it"): follow
+  the `signoff` skill.
+- **Praise that might not mean final** ("love it!"): ask "Want me to export
+  the finals?"

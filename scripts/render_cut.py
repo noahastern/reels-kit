@@ -9,12 +9,12 @@ import json, subprocess, sys
 from fractions import Fraction
 
 raw, out, shots_path = sys.argv[1], sys.argv[2], sys.argv[3]
-shots = json.load(open(shots_path))
+shots = json.load(open(shots_path, encoding='utf-8'))
 probe = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=r_frame_rate',
-                        '-of', 'default=nw=1:nk=1', raw], capture_output=True, text=True, check=True).stdout.split()[0]
+                        '-of', 'default=nw=1:nk=1', raw], capture_output=True, text=True, encoding='utf-8', errors='replace', check=True).stdout.split()[0]
 fps = Fraction(probe)
 sr = int(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate',
-                         '-of', 'default=nw=1:nk=1', raw], capture_output=True, text=True, check=True).stdout.split()[0])
+                         '-of', 'default=nw=1:nk=1', raw], capture_output=True, text=True, encoding='utf-8', errors='replace', check=True).stdout.split()[0])
 gop = str(round(fps))
 
 
