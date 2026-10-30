@@ -1,0 +1,16 @@
+{
+  "name": "reels-kit",
+  "owner": {
+    "name": "Noah Stern"
+  },
+  "metadata": {
+    "description": "The reels kit: edit your talking-head reels with Claude, in your own brand."
+  },
+  "plugins": [
+    {
+      "name": "reels-kit",
+      "source": "./",
+      "description": "Edit your talking-head reels with Claude in your own brand."
+    }
+  ]
+}

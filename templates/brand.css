@@ -1,0 +1,36 @@
+/* {{name}}'s brand. Every block and caption uses only these variables, so a
+   change here re-skins every video. Picked in /onboard on {{date}}. */
+
+@font-face { font-family: "{{Header font}}"; src: url("fonts/{{header file}}"); }
+@font-face { font-family: "{{Body font}}"; src: url("fonts/{{body file}}"); font-weight: 100 900; }
+@font-face { font-family: "{{Caption font}}"; src: url("fonts/{{caption file}}"); font-weight: 100 900; }
+
+:root {
+  /* The one accent: key words, emphasis captions, highlights. */
+  --accent: {{#hex}};
+
+  /* Text */
+  --ink: {{#hex}};
+  --ink-on-dark: {{#hex}};
+  --font-header: "{{Header font}}", serif;
+  --font-body: "{{Body font}}", sans-serif;
+  --font-caption: "{{Caption font}}", sans-serif;
+  --header-size: 42px;
+  --body-size: 52px;
+  --caption-size: 80px;
+  --body-weight: 800;
+
+  /* Boxes: size to their text. */
+  --box-bg: {{#hex}};
+  --box-dark: {{#hex}};
+  --box-radius: 34px;
+  --box-padding: 40px 54px 46px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+
+  /* {{platform}} safe area on the 1080×1920 frame (reference/craft.md). */
+  --safe-left: 60px;
+  --safe-right: 940px;
+  --safe-top: 290px;
+  --safe-bottom: 1480px;
+  --safe-right-from: 1000px;  /* the right edge only matters below this y */
+}

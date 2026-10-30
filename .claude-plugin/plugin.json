@@ -1,0 +1,18 @@
+{
+  "name": "reels-kit",
+  "version": "0.1.0",
+  "description": "Edit your talking-head reels with Claude in your own brand: onboard a brand kit, then cut raw footage, review a shot-by-shot board, and get text, motion, captions, sound and music built with HyperFrames.",
+  "author": {
+    "name": "Noah Stern"
+  },
+  "keywords": [
+    "video",
+    "reels",
+    "editing",
+    "hyperframes",
+    "brand",
+    "captions"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/noahastern/reels-kit"
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{name}}: video style guide</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+  /* One section per page, printed by scripts/html_to_pdf.py. */
+  @page { size: 1080px 1350px; margin: 0; }
+  body { margin: 0; background: #888; }
+  section.page { width: 1080px; height: 1350px; box-sizing: border-box; padding: 96px; overflow: hidden;
+                 page-break-after: always; background: var(--box-bg); color: var(--ink); font-family: var(--font-body); }
+  h1, h2 { font-family: var(--font-header); font-weight: 400; }
+  h1 { font-size: 88px; margin: 0 0 24px; }
+  h2 { font-size: 56px; margin: 0 0 32px; }
+  .swatch { display: inline-block; width: 200px; height: 200px; border-radius: 24px; margin: 0 24px 24px 0; }
+  img { max-width: 100%; border-radius: 24px; }
+</style>
+</head>
+<body>
+  <!-- Pages: 1 the direction (what the references have in common), 2 palette,
+       3 fonts, 4–5 the six blocks with their previews, 6 sounds, 7 the Don'ts.
+       Use only brand.css variables, and show blocks on their own footage. -->
+  <section class="page"><h1>{{name}}</h1><p>{{The direction, in two or three lines.}}</p></section>
+  <section class="page"><h2>Color</h2></section>
+  <section class="page"><h2>Type</h2></section>
+  <section class="page"><h2>Blocks</h2></section>
+  <section class="page"><h2>Sound</h2></section>
+  <section class="page"><h2>Never</h2></section>
+</body>
+</html>
